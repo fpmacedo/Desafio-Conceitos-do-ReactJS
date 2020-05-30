@@ -11,7 +11,7 @@ function App() {
     api.get('repositories').then(response=>{
       setRepositories(response.data);
     })
-  })
+  },[])
 
   async function handleAddRepository() {
     // TODO
@@ -42,7 +42,7 @@ function App() {
         <li key={repository.id}>
           {repository.title}
 
-          <button onClick={() => handleRemoveRepository(1)}>
+          <button onClick={() => handleRemoveRepository(repository.id)}>
             Remover
           </button>
         </li>
